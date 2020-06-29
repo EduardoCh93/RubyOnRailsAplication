@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :posts
   #root'pages#home'
   get 'users/new'
   root 'static_pages#home'

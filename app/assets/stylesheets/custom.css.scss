@@ -6,6 +6,13 @@
 $gray-medium-light: #eaeaea;
 
 /* universal */
+div{
+  color: #ff5900;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #8064A2 !important;
+}
 
 body {
   padding-top: 60px;
@@ -94,5 +101,37 @@ footer {
       float: left;
       margin-left: 15px;
     }
+  }
+}
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbbbbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: #ff5900;
+  ul {
+    color: #ff5900;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: #ff5900;
   }
 }

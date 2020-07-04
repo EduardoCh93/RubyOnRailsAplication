@@ -20,4 +20,21 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
+  def all
+    @user = User.all
+  end
+
+  def followers
+    all
+  end
+
+  def show_followers
+    all
+  end
+
+  def search
+    all
+  end
+
 end

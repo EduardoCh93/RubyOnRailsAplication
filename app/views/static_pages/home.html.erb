@@ -7,5 +7,13 @@
   </h2>
 
   <%= link_to "Sign up now!", sign_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Lista de usuarios", followers_path, class: "btn btn-lg btn-primary" %> <!-- boton temporal -->
 </div>
 
+<div class="form-group">
+  <%= form_tag("/users/search", method: "get") do %>
+    <%= label_tag("Buscar un usuario:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Buscar!") %>
+<% end %>
+</div>

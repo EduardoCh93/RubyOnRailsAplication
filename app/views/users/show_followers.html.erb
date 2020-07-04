@@ -1,0 +1,18 @@
+<%
+  user = User.find(params[:id])
+%>
+
+<p class="name"><p> Nombre del usuario: </p><%= user.name %>
+<p class="mail"><p> Mail del usuario: </p> <%= user.email %>
+<p> ----------------------------------------------</p>
+
+<p>|FOLLOWERS| Los usuarios que lo siguen son: </p>
+<% user.followers.each do |follower| %>
+  <p class="name"> <%= follower.name %></p>
+<% end %>
+<p> ----------------------------------------------</p>
+
+<p>|FOLLOWING| Los usuarios que a los sigue son: </p>
+<% user.followings.each do |following| %>
+  <p class="name"> <%= following.name %></p>
+<% end %>

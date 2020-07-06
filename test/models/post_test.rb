@@ -4,7 +4,7 @@ class PostTest < ActiveSupport::TestCase
 
   def setup
     @user = users(:lucas)
-    @post = Post.new(content: 'Contenido del post', user_id: @user.id)
+    @post = @user.posts.build(content: 'Contenido del post')
   end
 
   test 'should be valid' do

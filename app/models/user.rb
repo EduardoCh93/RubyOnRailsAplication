@@ -8,6 +8,4 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, length: { minimum: 8 }, on: :create
   validates :password_confirmation, presence: true
-  has_many :followers
-  has_many :followings
 end

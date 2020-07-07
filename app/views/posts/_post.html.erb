@@ -1,0 +1,5 @@
+<li>
+  <span><%= link_to post.user.name, post.user %></span>
+  <span><%= post.content %></span>
+  <span><%= time_ago_in_words(post.created_at) %> ago</span>
+</li>

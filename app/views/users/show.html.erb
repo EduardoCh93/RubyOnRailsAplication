@@ -8,10 +8,12 @@
       </h1>
     </section>
   </aside>
-  <% if @user.posts.any? %>
-    <h3>Posts (<%= @user.posts.count %>)</h3>
-    <ul>
-      <%= render @posts %>
-    </ul>
-  <% end %>
+  <div class="col-md-8">
+    <% if @user.posts.any? %>
+      <h3>Posts (<%= @user.posts.count %>)</h3>
+      <ul class="posts">
+        <%= render @posts %>
+      </ul>
+    <% end %>
+  </div>
 </div>

@@ -7,15 +7,17 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 div{
-  color: #ff5900;
+  color: #FFF;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
   background-color: #8064A2 !important;
+  border: none;
 }
 
 body {
   padding-top: 60px;
+  background: #121212;
 }
 
 section {

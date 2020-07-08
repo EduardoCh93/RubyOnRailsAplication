@@ -26,11 +26,7 @@ class UsersController < ApplicationController
     @user = User.all
   end
 
-  def followers
-    all
-  end
-
-  def show_followers
+  def users_list
     all
   end
 

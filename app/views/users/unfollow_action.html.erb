@@ -1,0 +1,25 @@
+<%
+  id_log = current_user.id
+  user_logueado = User.find(id_log)
+  user_a_dejar_de_seguir = User.find(params[:id])
+%>
+
+<%
+   user_a_dejar_de_seguir.followers.each do |follower|
+     if follower.name == user_logueado.name
+       follower.destroy
+       break
+     end
+   end
+%>
+
+<%
+  user_logueado.followings.each do |following|
+    if following.name == user_a_dejar_de_seguir.name
+      following.destroy
+      break
+    end
+  end
+%>
+
+<p> Ya no sigues a <%= user_a_dejar_de_seguir.name %>!</p>

@@ -5,6 +5,15 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   get 'sign' => 'users#new'
-  resource :users
+  get 'users_list' => 'users#users_list'
+  get 'follower_for_user/' => 'users#show_followers'
+  get 'search' => 'users#search'
+  get 'users/search' => 'users#search'
+  get 'login' => 'sessions#new'
+  get 'follow_action' => 'users#follow_action'
+  get 'unfollow_action' => 'users#unfollow_action'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

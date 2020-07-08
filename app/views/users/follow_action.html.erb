@@ -1,0 +1,9 @@
+<%
+  id_log = current_user.id
+  user_logueado = User.find(id_log)
+  user_a_seguir = User.find(params[:id])
+  Following.create!(name: user_a_seguir.name,id_usuario: user_a_seguir.id, user_id: user_logueado.id)
+  Follower.create!(name: user_logueado.name, id_usuario: user_logueado.id, user_id: user_a_seguir.id)
+%>
+
+<p>Ahora sigues a: <%= user_a_seguir.name %>!</p>

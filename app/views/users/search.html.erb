@@ -3,7 +3,7 @@
 <% cant = 0 %>
 <% @user.each do |user| %>
   <% if input.in? user.name %>
-    <p><%= user.name %> </p>
+    <p class="name"><%= link_to user.name, user_path(:id => user.id), class: "btn btn-lg btn-primary" %>
     <% cant += 1 %>
   <% end %>
 <% end %>

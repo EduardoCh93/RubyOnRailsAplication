@@ -1,5 +1,5 @@
 <p>Lista de usuarios del sistema</p>
 <p>Seleccione un usuario para ver sus datos, seguidores y siguiendos</p>
   <% @user.each do |user|  %>
-    <p class="name"><%= link_to user.name, follower_for_user_path(:id => user.id), class: "btn btn-lg btn-primary" %>
+    <p class="name"><%= link_to user.name, user_path(:id => user.id), class: "btn btn-lg btn-primary" %>
 <% end %>

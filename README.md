@@ -1,24 +1,34 @@
-# README
+# A Twitter clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Development
 
-Things you may want to cover:
+Instalar dependencias
+```bash
+$ bundle install
+```
 
-* Ruby version
+Hacer las migraciones y crear data de ejemplo
+```bash
+$ rails db:migrate
+$ rails db:seed
+```
 
-* System dependencies
+Luego iniciar el server
+```bash
+$ rails server
+```
 
-* Configuration
+Debería iniciar en http://localhost:3000
 
-* Database creation
+## Test
 
-* Database initialization
+Para correr todos los tests primero corremos las migraciones
+```bash
+$ rails db:migrate RAILS_ENV=test
+```
 
-* How to run the test suite
+Y luego los tests
+```bash
+$ rails test
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

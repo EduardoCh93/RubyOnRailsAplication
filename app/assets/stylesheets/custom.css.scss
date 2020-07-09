@@ -6,16 +6,14 @@
 $gray-medium-light: #eaeaea;
 
 /* universal */
-div{
-  color: #ff5900;
-}
-
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
   background-color: #8064A2 !important;
+  border: none;
 }
 
 body {
   padding-top: 60px;
+  background: #121212;
 }
 
 section {
@@ -37,6 +35,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+  color: #FFF;
 }
 
 h1 {
@@ -52,12 +51,12 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $gray-light;
 }
 
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+  color: #FFF;
 }
 
 

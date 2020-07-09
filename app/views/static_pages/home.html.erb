@@ -1,13 +1,19 @@
 <% provide(:title, "Home") %>
-<div class="center jumbotron">
-  <h1>Welcome to the Foro</h1>
+<div class="center">
+  <% if logged_in? %>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= render 'shared/post_form' %>
+      </div>
+    </div>
+  <% else %>
+    <h1>Welcome to the Foro</h1>
 
-  <h2>
-    This is the home page the Foro
-  </h2>
+    <h2>
+      This is the home page the Foro
+    </h2>
 
   <%= link_to "Sign up now!", sign_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "Lista de usuarios", users_list_path, class: "btn btn-lg btn-primary" %>
 </div>
 
 <div class="form-group">
@@ -15,5 +21,9 @@
     <%= label_tag("Buscar un usuario:") %>
     <%= text_field_tag(:q) %>
     <%= submit_tag("Buscar!") %>
-<% end %>
-</div>
+  <% end %>
+  <% end %>
+<%= link_to "Lista de usuarios", users_list_path, class: "btn btn-lg btn-primary" %>
+
+  </div>
+

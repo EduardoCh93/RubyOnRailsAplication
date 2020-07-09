@@ -1,0 +1,6 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+milanesa:
+  content: "Me gustan las milanesas de carne!"
+  created_at: <%= 10.minutes.ago %>
+  user: lucas

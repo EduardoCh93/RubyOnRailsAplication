@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+  get 'sessions/new'
   root 'static_pages#home'
   get 'home' => 'static_pages#home'
   get 'help' => 'static_pages#help'
@@ -14,6 +16,6 @@ Rails.application.routes.draw do
   get 'unfollow_action' => 'users#unfollow_action'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  resources :users
+  resources :posts, only: [:create, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

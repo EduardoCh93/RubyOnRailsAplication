@@ -10,15 +10,18 @@
 </nav> </div>
 <% end %>
 
-<div class="center">
-  <% if logged_in? %>
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <%= render 'shared/post_form' %>
-      </div>
+<% if logged_in? %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= render 'shared/post_form' %>
     </div>
-
-  <% else %>
+  </div>
+  <% if @feed_items.try(:any?) %>
+    <h3>Home</h3>
+    <%= render 'shared/feed' %>
+  <% end %>
+<% else %>
+  <div class="center">
     <h1>Welcome to the Foro</h1>
 
     <h2>
@@ -26,8 +29,8 @@
     </h2>
 
   <%= link_to "Sign up now!", sign_path, class: "btn btn-lg btn-primary" %>
-</div>
-
+  </div>
 <% end %>
+
 
 <%# link_to "Lista de usuarios", users_list_path, class: "btn btn-lg btn-primary" %>

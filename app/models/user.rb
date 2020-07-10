@@ -36,6 +36,10 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
+  def feed
+    posts
+  end
+
   has_many :followers
   has_many :followings
 end

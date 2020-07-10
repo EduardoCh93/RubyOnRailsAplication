@@ -1,6 +1,5 @@
 <li>
   <span class="user"><%= link_to "@#{post.user.name}", post.user %></span>
   <span class="dot">·</span>
-  <span class="timestamp"><%= time_ago_in_words(post.created_at) %> ago</span>
   <span class="content"><%= post.content %></span>
 </li>

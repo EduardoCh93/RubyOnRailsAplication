@@ -1,10 +1,10 @@
-class RepostsController < ApplicationController
+class LikesController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
 
   def create
-    @repost = current_user.reposts.build(repost_params)
+    @repost = current_user.likes.build(like_params)
     if @repost.save
-      flash[:success] = "Repost creado!"
+      flash[:success] = "Post liked"
       redirect_to request.referrer
     else
       render 'static_pages/home'
@@ -12,11 +12,14 @@ class RepostsController < ApplicationController
   end
 
   def destroy
+    Like.destroy(params[:id])
+    flash[:success] = "Post unliked"
+    redirect_to request.referrer
   end
 
   private
 
-  def repost_params
+  def like_params
     params.permit(:post_id)
   end
 end

@@ -5,5 +5,5 @@
   Following.create!(name: user_a_seguir.name,id_usuario: user_a_seguir.id, user_id: user_logueado.id)
   Follower.create!(name: user_logueado.name, id_usuario: user_logueado.id, user_id: user_a_seguir.id)
 %>
-
 <p>Ahora sigues a: <%= user_a_seguir.name %>!</p>
+<p class="name"> <%= link_to "Volver al perfil", user_path(:id => user_a_seguir), class: "btn btn-lg btn-primary" %></p>

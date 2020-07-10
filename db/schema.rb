@@ -12,6 +12,24 @@
 
 ActiveRecord::Schema.define(version: 2020_07_06_224307) do
 
+  create_table "followers", force: :cascade do |t|
+    t.string "name"
+    t.integer "id_usuario"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_followers_on_user_id"
+  end
+
+  create_table "followings", force: :cascade do |t|
+    t.string "name"
+    t.integer "id_usuario"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_followings_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.text "content"
     t.integer "user_id", null: false

@@ -1,0 +1,12 @@
+<p> Ingreso: <%= input = CGI.parse(URI.parse(request.original_url()).query)["q"][0] %></p>
+<p>Se encontraron los siguientes usuarios: </p>
+<% cant = 0 %>
+<% @user.each do |user| %>
+  <% if input.in? user.name %>
+    <p class="name"><%= link_to user.name, user_path(:id => user.id), class: "btn btn-lg btn-primary" %>
+    <% cant += 1 %>
+  <% end %>
+<% end %>
+<p> ----------------------------------------------</p>
+<p> Cantidad de usuarios encontrados: <%= cant %> </p>
+<p> ----------------------------------------------</p>

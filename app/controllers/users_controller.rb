@@ -22,4 +22,17 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
+  def all
+    @user = User.all
+  end
+
+  def users_list
+    all
+  end
+
+  def search
+    all
+  end
+
 end

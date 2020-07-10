@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST:
-                                                  BCrypt::Engine.cost
+               BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 
@@ -35,4 +35,7 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  has_many :followers
+  has_many :followings
 end

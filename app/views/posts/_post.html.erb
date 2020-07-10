@@ -3,4 +3,7 @@
   <span class="dot">·</span>
   <span class="timestamp"><%= time_ago_in_words(post.created_at) %> ago</span>
   <span class="content"><%= post.content %></span>
+  <span class="repost"><%= link_to "Repost (#{post.reposts.count})",
+                                   '/reposts?' + {post_id: post.id}.to_param,
+                                   method: :post %></span>
 </li>

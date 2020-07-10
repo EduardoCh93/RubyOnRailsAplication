@@ -1,7 +1,11 @@
 <li>
-  <span class="content">REPOST</span>
   <span class="user"><%= link_to "@#{repost.user.name}", repost.user %></span>
   <span class="dot">·</span>
   <span class="timestamp"><%= time_ago_in_words(repost.created_at) %> ago</span>
-  <span class="content"><%= repost.post.content %></span>
+  <div class="repost">
+    <span class="user"><%= link_to "@#{repost.post.user.name}", repost.post.user %></span>
+    <span class="dot">·</span>
+    <span class="timestamp"><%= time_ago_in_words(repost.post.created_at) %> ago</span>
+    <span class="content"><%= repost.post.content %></span>
+  </div>
 </li>

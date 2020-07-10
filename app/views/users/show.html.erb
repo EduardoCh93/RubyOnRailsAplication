@@ -12,7 +12,7 @@
     <% if @user.posts.any? || @user.reposts.any? %>
       <h3>Posts (<%= @user.posts.count + @user.reposts.count %>)</h3>
       <ul class="posts">
-        <%= render (@posts + @user.reposts).reverse %>
+        <%= render (@posts + @user.reposts).sort_by{|p| p.created_at}.reverse %>
       </ul>
     <% end %>
   </div>

@@ -1,15 +1,5 @@
 <% provide(:title, "Home") %>
 
-<% if logged_in? %>
-<div class="col-md-3 col-md-offset-0">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= form_tag("/search", method: "get") do %>
-    <%= text_field_tag(:q, "Buscar un usuario:") %>
-    <%= submit_tag("Buscar!") %>
-  <% end %>
-</nav> </div>
-<% end %>
-
 <div class="center">
   <% if logged_in? %>
     <div class="row">

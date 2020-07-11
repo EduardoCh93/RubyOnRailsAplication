@@ -9,10 +9,10 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <% if @user.posts.any? %>
-      <h3>Posts (<%= @user.posts.count %>)</h3>
+    <% if @user.posts.any? || @user.reposts.any? %>
+      <h3>Posts (<%= @user.posts.count + @user.reposts.count %>)</h3>
       <ul class="posts">
-        <%= render @posts.reverse %>
+        <%= render (@posts + @user.reposts).sort_by{|p| p.created_at}.reverse %>
       </ul>
     <% end %>
   </div>

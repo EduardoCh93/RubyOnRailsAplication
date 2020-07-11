@@ -37,7 +37,7 @@ class User < ApplicationRecord
   end
 
   def feed
-    posts
+    Post.where('user_id IN (?) OR user_id = ?', followings.map(&:id_usuario), id)
   end
 
   has_many :followers

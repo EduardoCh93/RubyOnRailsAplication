@@ -1,6 +1,5 @@
 <% if @feed_items.try(:any?) %>
   <ul class="posts">
-    <% @feed_items.each { |p| puts "DEBUG:: #{p.id}" } %>
-    <%= render @feed_items.reverse %>
+    <%= render @feed_items %>
   </ul>
 <% end %>

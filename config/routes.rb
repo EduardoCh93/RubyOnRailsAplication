@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   resources :posts, only: [:create, :destroy]
+  resources :reposts, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

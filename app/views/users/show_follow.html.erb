@@ -1,4 +1,4 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, @title) %>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -13,10 +13,10 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <% if @posts.any? || @reposts.any? %>
-      <h3>Posts (<%= @posts.count + @reposts.count %>)</h3>
-      <ul class="posts">
-        <%= render (@posts + @reposts).sort_by{|p| p.created_at}.reverse %>
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+      <ul class="users-follow">
+        <%= render @users %>
       </ul>
     <% end %>
   </div>

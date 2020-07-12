@@ -11,13 +11,3 @@
     <% end %>
   </li>
 </ul>
-
-<p> ----------------------------------------------</p>
-
-<% @user.followers.each do |follower| %>
-  <p class="name"> <%= link_to follower.name, user_path(id: follower.id_usuario), class: "btn btn-lg btn-primary" %></p>
-<% end %>
-
-<% @user.followings.each do |following| %>
-  <p class="name"> <%= link_to following.name, user_path(id: following.id_usuario), class: "btn btn-lg btn-primary" %></p>
-<% end %>

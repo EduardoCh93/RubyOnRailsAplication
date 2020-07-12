@@ -50,6 +50,20 @@ class UsersController < ApplicationController
     @user = User.find_by_email(params[:email])
   end
 
+  def followings
+    @title = 'Siguiendo'
+    @user = User.find(params[:id])
+    @users = @user.followings.map{ |f| User.find(f.id_usuario) }
+    render 'show_follow'
+  end
+
+  def followers
+    @title = 'Seguidores'
+    @user = User.find(params[:id])
+    @users = @user.followers.map{ |f| User.find(f.id_usuario) }
+    render 'show_follow'
+  end
+
   private
 
   def user_params

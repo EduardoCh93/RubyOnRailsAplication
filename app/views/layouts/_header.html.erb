@@ -22,7 +22,9 @@
         <% if logged_in? %>
           <li>
             <%= link_to current_user do %>
-              <span class="glyphicon glyphicon-user"></span> Profile
+              <div class="header-user">
+                <%= "@#{current_user.name}" %>
+              </div>
             <% end %>
           </li>
           <li>

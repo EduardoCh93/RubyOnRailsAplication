@@ -1,5 +1,5 @@
 <% if @feed_items.try(:any?) %>
   <ul class="posts">
-    <%= render @feed_items %>
+    <%= render @feed_items.sort_by{|p| p.created_at}.reverse %>
   </ul>
 <% end %>

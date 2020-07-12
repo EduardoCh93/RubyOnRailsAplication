@@ -41,4 +41,9 @@ class User < ApplicationRecord
 
   has_many :followers
   has_many :followings
+
+  def following?(other_user)
+    followings.any? { |following| following.id_usuario == other_user.id }
+  end
+
 end

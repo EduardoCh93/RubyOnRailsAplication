@@ -1,0 +1,7 @@
+<% unless current_user?(@user) %>
+  <% if current_user.following?(@user) %>
+    <%= link_to "Dejar de Seguir", unfollow_action_path(id: @user), class: "btn btn-lg btn-primary" %>
+  <% else %>
+    <%= link_to "Seguir", follow_action_path(id: @user), class: "btn btn-lg btn-primary" %>
+  <% end %>
+<% end %>

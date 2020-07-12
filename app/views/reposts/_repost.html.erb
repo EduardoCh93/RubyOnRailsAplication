@@ -7,7 +7,7 @@
     <span class="dot">·</span>
     <span class="timestamp"><%= time_ago_in_words(repost.post.created_at) %> ago</span>
     <span class="content"><%= repost.post.content %></span>
-    <% if like = current_user.likes.find_by(post_id: repost.post.id) %>
+    <% if (like = repost.user.likes.find_by(post_id: repost.post.id)) %>
     <span class="action"><%= link_to "Unlike (#{repost.post.likes.count})",
                                      "/likes/#{like.id}",
                                      method: :delete %></span>
@@ -17,7 +17,7 @@
                                      method: :post %></span>
     <% end %>
 
-    <% unless current_user.reposts.find_by(post_id: repost.post.id) %>
+    <% unless repost.user.reposts.find_by(post_id: repost.post.id) %>
       <span class="action"><%= link_to "Repost (#{repost.post.reposts.count})",
                                        '/reposts?' + {post_id: repost.post.id}.to_param,
                                        method: :post %></span>

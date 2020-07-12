@@ -1,8 +1,11 @@
+<% if post.content %>
 <li>
   <span class="user"><%= link_to "@#{post.user.name}", post.user %></span>
   <span class="dot">·</span>
   <span class="timestamp"><%= time_ago_in_words(post.created_at) %> ago</span>
   <span class="content"><%= post.content %></span>
+</li>
+<% end %>
   <% if like = current_user.likes.find_by(post_id: post.id) %>
     <span class="action"><%= link_to "Unlike (#{post.likes.count})",
                                      "/likes/#{like.id}",

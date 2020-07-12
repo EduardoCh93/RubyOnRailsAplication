@@ -80,4 +80,23 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test 'feed con posts correctos' do
+    # Lucas sigue a fulano
+    lucas = users(:lucas)
+    pepe = users(:pepe)
+    fulano = users(:fulano)
+    # Posts de usuario que sigo
+    fulano.posts.each do |post_seguido|
+      assert lucas.feed.include?(post_seguido)
+    end
+    # Posts propios
+    lucas.posts.each do |post_propio|
+      assert lucas.feed.include?(post_propio)
+    end
+    # Posts de usuario que no sigo
+    pepe.posts.each do |post_no_seguido|
+      assert_not lucas.feed.include?(post_no_seguido)
+    end
+  end
+
 end

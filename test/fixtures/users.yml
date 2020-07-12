@@ -1,5 +1,14 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 lucas:
+  id: 1
   name: lucas
   email: lucas@example.com
+
+fulano:
+  id: 2
+  name: fulano
+  email: fulano@example.com
+
+pepe:
+  id: 3
+  name: pepe
+  email: pepe@example.com

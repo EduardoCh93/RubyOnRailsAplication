@@ -1,6 +1,8 @@
-<% unless current_user?(@user) %>
+<% if current_user?(@user) %>
+  <%= link_to "Editar perfil", edit_user_path(id: @user), class: "btn btn-lg btn-primary" %>
+<% else %>
   <% if current_user.following?(@user) %>
-    <%= link_to "Dejar de Seguir", unfollow_action_path(id: @user), class: "btn btn-lg btn-primary" %>
+    <%= link_to "Dejar de Seguir", unfollow_action_path(id: @user), class: "btn btn-lg btn-danger" %>
   <% else %>
     <%= link_to "Seguir", follow_action_path(id: @user), class: "btn btn-lg btn-primary" %>
   <% end %>

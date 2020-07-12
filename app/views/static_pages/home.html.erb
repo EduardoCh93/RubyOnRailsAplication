@@ -8,13 +8,17 @@
       </section>
     </aside>
   </div>
+  <% if @feed_items.try(:any?) %>
+    <h3>Home</h3>
+    <%= render 'shared/feed' %>
+  <% end %>
 <% else %>
   <div class="center">
-      <h1>Welcome to the Foro</h1>
+    <h1>Welcome to the Foro</h1>
 
-      <h2>
-        This is the home page the Foro
-      </h2>
+    <h2>
+      This is the home page the Foro
+    </h2>
 
     <%= link_to "Sign up now!", sign_path, class: "btn btn-lg btn-primary" %>
   </div>

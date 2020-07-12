@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   get 'follow_action' => 'users#follow_action'
   get 'unfollow_action' => 'users#unfollow_action'
+  get 'forgot_password' => 'users#forgot_password'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   resources :posts, only: [:create, :destroy]

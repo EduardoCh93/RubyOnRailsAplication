@@ -39,6 +39,12 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
+  def feed
+    posts = Post.where('user_id IN (?) OR user_id = ?', followings.map(&:id_usuario), id)
+    reposts = Repost.where('user_id IN (?) OR user_id = ?', followings.map(&:id_usuario), id)
+    posts + reposts
+  end
+
   has_many :followers
   has_many :followings
 

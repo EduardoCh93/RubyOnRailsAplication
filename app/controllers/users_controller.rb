@@ -2,14 +2,25 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
+    @reposts = @user.reposts
   end
 
   def new
     @user = User.new
   end
 
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   def create
@@ -35,4 +46,13 @@ class UsersController < ApplicationController
     all
   end
 
+  def forgot_password
+    @user = User.find_by_email(params[:email])
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
 end

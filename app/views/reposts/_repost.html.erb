@@ -1,12 +1,15 @@
 <li>
-  <span class="user"><%= link_to "@#{repost.user.name}", repost.user %></span>
-  <span class="dot">·</span>
-  <span class="timestamp"><%= time_ago_in_words(repost.created_at) %> ago</span>
+    <%= link_to(repost.user) do %>
+      <span class="user-repost">
+        <span class="glyphicon glyphicon-retweet"></span> <%= "@#{repost.user.name} reposteó" %>
+      </span>
+    <% end %>
   <div class="repost">
     <span class="user"><%= link_to "@#{repost.post.user.name}", repost.post.user %></span>
     <span class="dot">·</span>
     <span class="timestamp"><%= time_ago_in_words(repost.post.created_at) %> ago</span>
     <span class="content"><%= repost.post.content %></span>
+
     <% if (like = repost.user.likes.find_by(post_id: repost.post.id)) %>
     <span class="action"><%= link_to "Unlike (#{repost.post.likes.count})",
                                      "/likes/#{like.id}",

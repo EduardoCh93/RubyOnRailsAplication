@@ -5,6 +5,7 @@
 Instalar dependencias
 ```bash
 $ bundle install
+$ yarn install
 ```
 
 Hacer las migraciones y crear data de ejemplo

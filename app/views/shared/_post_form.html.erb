@@ -1,5 +1,7 @@
 <%= form_with(model: @post, local: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <%= f.text_area :content, placeholder: "Crear nuevo post..." %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: 'Crear nuevo post...', rows: 4, class: 'form-control' %>
+  </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>

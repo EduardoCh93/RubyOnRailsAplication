@@ -1,23 +1,23 @@
 <% provide(:title, "Home") %>
 
-<div class="center">
-  <% if logged_in? %>
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="post-form">
         <%= render 'shared/post_form' %>
-      </div>
-    </div>
+      </section>
+    </aside>
+  </div>
+<% else %>
+  <div class="center">
+      <h1>Welcome to the Foro</h1>
 
-  <% else %>
-    <h1>Welcome to the Foro</h1>
+      <h2>
+        This is the home page the Foro
+      </h2>
 
-    <h2>
-      This is the home page the Foro
-    </h2>
-
-  <%= link_to "Sign up now!", sign_path, class: "btn btn-lg btn-primary" %>
-</div>
-
+    <%= link_to "Sign up now!", sign_path, class: "btn btn-lg btn-primary" %>
+  </div>
 <% end %>
 
 <%# link_to "Lista de usuarios", users_list_path, class: "btn btn-lg btn-primary" %>

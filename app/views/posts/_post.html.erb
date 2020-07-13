@@ -6,7 +6,7 @@
   <span class="content"><%= post.content %></span>
   <% end %>
 
-  <% if like = current_user.likes.find_by(post_id: post.id) %>
+  <% if (like = post.user.likes.find_by(post_id: post.id)) %>
     <span class="action"><%= link_to "Unlike (#{post.likes.count})",
                                      "/likes/#{like.id}",
                                      method: :delete %></span>
@@ -16,7 +16,7 @@
                                      method: :post %></span>
   <% end %>
 
-  <% unless current_user.reposts.find_by(post_id: post.id) %>
+  <% unless post.user.reposts.find_by(post_id: post.id) %>
     <span class="action"><%= link_to "Repost (#{post.reposts.count})",
                                      '/reposts?' + {post_id: post.id}.to_param,
                                      method: :post %></span>

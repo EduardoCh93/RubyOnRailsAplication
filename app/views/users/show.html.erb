@@ -2,10 +2,14 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= "@#{@user.name}" %>
-      </h1>
+      <%= gravatar_for @user %>
+      <div class="username">
+        <h1> <%= "@#{@user.name}" %> </h1>
+        <%= render 'follow_form' if logged_in? %>
+      </div>
+    </section>
+    <section>
+      <%= render 'follow_stats' %>
     </section>
   </aside>
   <div class="col-md-8">
@@ -17,38 +21,4 @@
     <% end %>
   </div>
 </div>
-<%
-  user = User.find(params[:id])
-%>
-
-<p class="name"><p> Nombre del usuario: </p><%= user.name %>
-<p class="mail"><p> Mail del usuario: </p> <%= user.email %>
-<p> ----------------------------------------------</p>
-
-<% if current_user.id != user.id %>
-  <% es_follower = false
-     name_user_logueado = User.find(current_user.id).name
-     user.followers.each do |follower|
-       if follower.name == name_user_logueado
-         es_follower = true
-         break
-       end
-     end %>
-  <% if es_follower %>
-    <p class="name"> <%= link_to "Dejar de Seguir", unfollow_action_path(:id => user.id), class: "btn btn-lg btn-primary" %></p>
-  <% else %>
-    <p class="name"> <%= link_to "Seguir", follow_action_path(:id => user.id), class: "btn btn-lg btn-primary" %></p>
-  <% end %>
-<% end %>
-
-<p>|FOLLOWERS| Los usuarios que siguen a <%= user.name %> son: </p>
-<% user.followers.each do |follower| %>
-  <p class="name"> <%= link_to follower.name, user_path(:id => follower.id_usuario), class: "btn btn-lg btn-primary" %></p>
-<% end %>
-<p> ----------------------------------------------</p>
-
-<p>|FOLLOWING| Los usuarios que a los que <%= user.name %> sigue son: </p>
-<% user.followings.each do |following| %>
-  <p class="name"> <%= link_to following.name, user_path(:id => following.id_usuario), class: "btn btn-lg btn-primary" %></p>
-<% end %>
 

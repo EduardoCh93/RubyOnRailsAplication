@@ -1,0 +1,14 @@
+.stats {
+  padding: 0;
+  .stat {
+    display: inline-block;
+    list-style: none;
+  }
+  .stat > a {
+    color: white;
+    list-style: none;
+  }
+  .stat:nth-child(2) {
+    margin-left: 15px;
+  }
+}

@@ -1,0 +1,23 @@
+<ul class="stats">
+  <li class="stat">
+    <%= link_to(followers_user_path(@user)) do %>
+      <strong><%= @user.followers.count %></strong> Seguidores
+    <% end %>
+  </li>
+
+  <li class="stat">
+    <%= link_to(followings_user_path(@user)) do %>
+      <strong><%= @user.followings.count %></strong> Siguiendo
+    <% end %>
+  </li>
+</ul>
+
+<p> ----------------------------------------------</p>
+
+<% @user.followers.each do |follower| %>
+  <p class="name"> <%= link_to follower.name, user_path(id: follower.id_usuario), class: "btn btn-lg btn-primary" %></p>
+<% end %>
+
+<% @user.followings.each do |following| %>
+  <p class="name"> <%= link_to following.name, user_path(id: following.id_usuario), class: "btn btn-lg btn-primary" %></p>
+<% end %>

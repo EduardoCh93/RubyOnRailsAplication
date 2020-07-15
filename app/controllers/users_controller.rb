@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include FollowsConcern
+
   def show
     @user = User.find(params[:id])
     @posts = @user.posts

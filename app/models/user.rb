@@ -14,14 +14,16 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, :through => :likes, :source => :post
 
-  def self.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST:
-               BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
-  end
+  class << self
+    def digest(string)
+      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST:
+                 BCrypt::Engine.cost
+      BCrypt::Password.create(string, cost: cost)
+    end
 
-  def self.new_token
-    SecureRandom.urlsafe_base64
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
   end
 
   def remember
@@ -40,9 +42,17 @@ class User < ApplicationRecord
   end
 
   def feed
-    posts = Post.where('user_id IN (?) OR user_id = ?', followings.map(&:id_usuario), id)
-    reposts = Repost.where('user_id IN (?) OR user_id = ?', followings.map(&:id_usuario), id)
-    posts + reposts
+    followings_posts + followings_reposts
+  end
+
+  def followings_posts
+    followings_ids = followings.map(&:id_usuario)
+    Post.where('user_id IN (?) OR user_id = ?', followings_ids, id)
+  end
+
+  def followings_reposts
+    followings_ids = followings.map(&:id_usuario)
+    Repost.where('user_id IN (?) OR user_id = ?', followings_ids, id)
   end
 
   has_many :followers

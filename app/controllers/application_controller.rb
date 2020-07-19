@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def logged_in_user
-    unless logged_in?
-      flash[:danger] = "Por favor inicia sesión."
-      redirect_to login_url
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Por favor inicia sesión."
+        redirect_to login_url
+      end
     end
-  end
 end

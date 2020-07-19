@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  include FollowsConcern
+  include Followable
 
   def show
     @user = User.find(params[:id])

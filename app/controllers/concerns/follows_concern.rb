@@ -1,4 +1,4 @@
-module FollowsConcern
+module Followable
   def followings
     @title = 'Siguiendo'
     @user = User.find(params[:id])

@@ -15,7 +15,6 @@ module SessionsHelper
     end
   end
 
-  # Devuelve true si `user` es el usuario actual
   def current_user?(user)
     user && user == current_user
   end

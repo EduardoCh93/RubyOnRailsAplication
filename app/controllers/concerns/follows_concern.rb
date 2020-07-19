@@ -1,4 +1,6 @@
 module Followable
+  extend ActiveSupport::Concern
+
   def followings
     @title = 'Siguiendo'
     @user = User.find(params[:id])
